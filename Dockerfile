@@ -8,7 +8,4 @@ COPY . .
 
 RUN npm install 
 
-WORKDIR /home/hack.chat/client
-
-RUN npm install -g less jade http-server
-RUN make
+CMD ["npm", "start"]
