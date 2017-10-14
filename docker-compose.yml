@@ -6,7 +6,10 @@ services:
      - "127.0.0.1:8080:8080"
     links:
      - "websocket"
+     - "redis"
   websocket:
     build: .
     ports:
      - "127.0.0.1:6060:6060"
+  redis:
+    image: "redis"
