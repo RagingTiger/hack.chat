@@ -1,6 +1,6 @@
 FROM node
 
-WORKDIR /home/hack.chat/client
+WORKDIR /app/client
 COPY . .
 
 RUN npm install -g less jade http-server
