@@ -1,7 +1,7 @@
 version: "3.1"
 
 services:
-  
+
   nginx:
     image: nginx:alpine
     ports:
@@ -14,12 +14,15 @@ services:
 
   http-server:
     build: ./client
-    links:
-     - "redis"
 
   websocket:
     build: .
 
-  redis:
-    image: "redis"    
-
+  ngrok:
+    image: wernight/ngrok
+    ports:
+      - "4040:4040"
+    links:
+      - "nginx"
+    environment:
+      - NGROK_PORT=nginx:8080
