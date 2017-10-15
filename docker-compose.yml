@@ -1,15 +1,25 @@
-version: '2'
+version: "3.1"
+
 services:
-  http:
-    build: ./client
+  
+  nginx:
+    image: nginx:alpine
     ports:
-     - "127.0.0.1:8080:8080"
+      - "8080:8080"
+    volumes:
+      - ./nginx/default.conf:/etc/nginx/conf.d/default.conf
     links:
-     - "websocket"
+      - "http-server"
+      - "websocket"
+
+  http-server:
+    build: ./client
+    links:
      - "redis"
+
   websocket:
     build: .
-    ports:
-     - "127.0.0.1:6060:6060"
+
   redis:
-    image: "redis"
+    image: "redis"    
+
