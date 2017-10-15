@@ -14,12 +14,8 @@ services:
 
   http-server:
     build: ./client
-    links:
-     - "redis"
 
   websocket:
     build: .
 
-  redis:
-    image: "redis"    
 
