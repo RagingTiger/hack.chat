@@ -64,7 +64,7 @@ function join(channel) {
 	}
 	else {
 		// for local installs
-		ws = new WebSocket('http://' + document.domain + '8080/ws')
+		ws = new WebSocket('ws://' + document.domain + '/ws')
 	}
 
 	var wasConnected = false
